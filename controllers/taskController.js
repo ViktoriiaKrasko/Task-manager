@@ -80,9 +80,9 @@ export const getTasksByUserId = async (req, res) => {
 
 export const getAllTasks = async (req, res) => {
     try {
-        const tasks = await Task.find();
+        const allTasks = await Task.find();
 
-        return res.status(200).json(tasks);
+        return res.status(200).json(allTasks);
     } catch (err) {
         res.status(400).json({ message: 'Failed to find all tasks' });
     }
@@ -104,6 +104,6 @@ export const getTask = async (req, res) => {
 
         return res.status(200).json(task);
     } catch (err) {
-        res.status(400).json({ message: 'Failed to find the task' });
+        res.status(400).json({ message: 'Task is not found' });
     }
 };
